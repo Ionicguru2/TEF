@@ -1,0 +1,42 @@
+<ion-view title="PRESENTATIONS">
+  <ion-content padding="false" class=" manual-remove-top-padding has-header" overflow-scroll="true">
+    <div id="cover" ng-show="loading">
+      <div style="color:#fff;text-align:center;">LOADING</div>
+      <div style="margin:100px auto;width:10px;height:100%;">
+        <ion-spinner></ion-spinner>
+      </div>
+    </div>
+
+
+    <ion-scroll class="top-container scroll-view ionic-scroll scroll-y">
+      <div ng-repeat="p in desc">
+        <div class="conferenceHeader">
+          {{p.mTitle}}
+        </div>
+
+        <div ng-repeat="e in p.events">
+          <a ng-click="gotoLink(e.file)">
+            <div class="pIcon"></div>
+            <div class="pTitle">
+              {{e.title}}
+            </div>
+          </a>
+          <br clear="all">
+        </div>
+      </div>
+    </ion-scroll>
+
+
+
+  </ion-content>
+  <div class="bottom-container">
+    <div class="button-bar">
+
+      <a ui-sref="nETWORKINGEVENTS" style="font-size:8px;border-radius:0px 0px 0px 0px;" class="button button-dark  btnb1" href="#/page17"></a>
+      <a ui-sref="cONFERENCEFEED" style="font-size:9px;border-radius:0px 0px 0px 0px;" class="button button-dark  btnb2" href="#/page13"></a>
+      <a ui-sref="pRESENTATIONS" style="font-size:8px;border-radius:0px 0px 0px 0px;" class="button button-dark btnb3" href="#/page11"></a>
+      <a ui-sref="eVALUATIONS" style="font-size:8px;border-radius:0px 0px 0px 0px;" class="button button-dark  btnb4" href="#/page14"></a>
+    </div>
+  </div>
+
+</ion-view>

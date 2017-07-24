@@ -1,0 +1,480 @@
+$dark: #003B4A;
+$balanced: #86888B;
+$positive: #003B4A;
+$taf: #003B4A;
+$greyText: #808285;
+$ionicons-font-path: "../lib/ionic/fonts" !default;
+@import "../www/lib/ionic/scss";
+.bgList {
+	background: #003B4A;
+	//#003C4D;
+	height: 80px;
+	padding-top: 26px;
+	font-size: 15px;
+}
+
+.bar-header {
+	height: 84px!important;
+}
+
+.has-header {
+	top: 84px;
+}
+
+.platform-ios .has-header {
+	margin-top: 20px;
+}
+
+.ispan {
+	float: right;
+}
+
+.menuList {
+	background: #86888B;
+	//003C4D;
+	height: 80px;
+	padding-top: 10px;
+	font-size: 14px;
+	color: #fff;
+	text-align: center;
+}
+
+.menuList a.item-content {
+	background-color: inherit!important;
+}
+
+.top-container {
+	height: calc(100% - 50px);
+	overflow: scroll;
+}
+
+.bottom-container {
+	position: absolute;
+	bottom: 0px;
+	display: block;
+	width: 100%;
+	height: 60px;
+	background-color: white;
+}
+
+.btnb1 {
+	background: url('https: //www.trusteducationfoundation.com/mobile/icon1.png') no-repeat center 10px;
+	background-size: 41px 40px;
+	background-color: #000;
+	padding-top: 20px!important;
+	height: 60px;
+	outline: 0;
+}
+
+.btnb2 {
+	background: url('https: //www.trusteducationfoundation.com/mobile/icon2.png') no-repeat center 10px;
+	background-size: 40px 35px;
+	background-color: #000;
+	padding-top: 20px!important;
+	height: 60px;
+}
+
+.btnb3 {
+	background: url('https: //www.trusteducationfoundation.com/mobile/icon3.png') no-repeat center 10px;
+	background-size: 41px 40px;
+	background-color: #000;
+	padding-top: 20px!important;
+	height: 60px;
+}
+
+.btnb4 {
+	background: url('https: //www.trusteducationfoundation.com/mobile/icon4.png') no-repeat center 10px;
+	background-size: 28px 41px;
+	background-color: #000;
+	padding-top: 20px!important;
+	height: 60px;
+}
+
+.bottom-menu {
+	//position: absolute;
+	bottom: 0px;
+	display: block;
+	width: 100%;
+	height: 45px;
+	background-color: black;
+	z-index: 000;
+	margin-top: 20px;
+	background: url('https: //www.trusteducationfoundation.com/mobile/menubottom.png') no-repeat center 10px;
+	background-size: 238px 30px;
+}
+
+.menuwide {
+	width: 100%;
+}
+
+.button.button-dark.active,.button.button-dark.activated {
+	border-color: transparent!important;
+	// background-color: #000000!important;
+}
+
+.menuactive {
+	background: #ED7526!important;
+}
+
+#agenda-list-item-container2.item.active,#agenda-list-item-container2.item.activated {
+	background: #ED7526!important;
+}
+
+.agendaMain {
+	color: #fff;
+}
+
+.platinum {
+	background: #546C7A!important;
+	color: #fff;
+}
+
+.gold {
+	background: #CA982C!important;
+}
+
+.silver {
+	background: #BBBDC0!important;
+}
+
+.app_title {
+	font-weight: bold;
+}
+
+.app_header {
+	font-style: italic;
+}
+
+.home_sponsor {
+	position: absolute;
+	bottom: 80px;
+	display: block;
+	width: 100%;
+	height: 20%;
+	background-color: #003C4D;
+	background: url('https: //www.trusteducationfoundation.com/mobile/home_bottom.png') no-repeat center center;
+	background-size: 200px;
+}
+
+.sponsorSection .item.item-thumbnail-left img {
+	// max-height: inherit!important;
+}
+
+.sponsorLogo {
+	width: 280px;
+	margin: 10px 0;
+}
+
+.home_events {
+	height: 23%;
+	border-top: 1px solid #003B4A;
+	border-bottom: 1px solid #003B4A;
+	// background: #002934;
+}
+
+.home_top {
+	background: url('https: //www.trusteducationfoundation.com/mobile/home_top.png') no-repeat center center;
+	background-size: 200px;
+	height: 30%;
+	width: 100%;
+	margin: 20px auto;
+}
+
+.speaker h2 {
+	font-size: 12px;
+	font-weight: bold;
+}
+
+.speaker {
+	background: #536A78;
+	font-size: 12px;
+}
+
+.speaker_pic {
+	background: #231F20;
+}
+
+.speaker_name {
+	font-size: 12px;
+	padding: 15px;
+	background: #536A78;
+}
+
+.speaker_bio {
+	font-size: 12px;
+	padding: 15px;
+	background: #545456;
+	color: #fff;
+}
+
+.speaker img {
+	top: 0;
+	left: 0;
+	max-width: 100px;
+	max-height: 100px;
+}
+
+.sIcon {
+	width: 10%;
+	height: 30px;
+	float: left;
+	background: url('https: //www.trusteducationfoundation.com/mobile/icon_file2t.png') no-repeat center;
+	background-size: 30px 30px;
+	margin-right: 5px;
+}
+
+.sTitle {
+	float: left;
+	width: 85%;
+	font-size: 12px;
+	margin-bottom: 10px;
+	color: #fff;
+}
+
+a.sTitle {
+	color: #fff;
+	text-decoration: none;
+}
+
+.eventPage h2, .faqPage h2 {
+	font-size: 18px;
+}
+
+.eventPage p,.faqPage p {
+	font-size: 12px;
+}
+
+/* ATTENDEES  */
+
+.btnSwipe {
+	background: #003B4A;
+	color: #fff;
+}
+
+.attendeesPage .item-complex .item-content, .attendeesPage .item-radio .item-content {
+	background: #e6e7e8!important;
+}
+
+.attendeeName {
+	font-size: 12px;
+	text-transform: uppercase;
+	color: #000;
+}
+
+.attendeeTitle {
+	font-size: 12px;
+	color: #808285;
+}
+
+.attendeeCompany {
+	font-size: 12px;
+	color: #808285;
+}
+
+.attendeeHeader {
+	width: 100%;
+	padding: 5px;
+	background: #ccc;
+	color: #808285;
+	margin-bottom: 2px;
+}
+
+.attendeeWrapper {
+	margin-left: 30px;
+}
+
+.attendeeIcon {
+	font-size: 18px;
+	padding-left: 10px;
+	margin-right: 20px;
+}
+
+.attendeeSearch {
+	background: #003B4A;
+}
+
+.attendeeSearch input {
+	border-radius: 15px;
+	padding: 5px 10px;
+	margin: 0 auto;
+	width: 70%;
+}
+
+.letterSearch {
+	width: 10%;
+	float: right;
+	text-align: center;
+	padding: 10px;
+	position: fixed;
+	right: 0px;
+	top: 77px;
+}
+
+.searchList {
+	width: 100%;
+	float: left;
+	padding: 0px;
+}
+
+input: : -webkit-input-placeholder {
+	color: #ccc !important;
+}
+
+input: -moz-placeholder {
+	/* Firefox 18- */
+	color: #ccc !important;
+}
+
+input: : -moz-placeholder {
+	/* Firefox 19+ */
+	color: #ccc !important;
+}
+
+input: -ms-input-placeholder {
+	color: #ccc !important;
+}
+
+.sort,.searchFirst,.searchLast {
+	font-size: 12px;
+	padding-left: 20px;
+	color: #808285;
+}
+
+#cover {
+	width: 100%;
+	height: 100%;
+	background: #000;
+	padding-top: 50px;
+	z-index: 1000;
+	position: absolute;
+	// background: #000 url('https: //semiplay.com/taf/menubottom.png') no-repeat center 10px;
+}
+
+/* CONFERENCE FEED */
+.top-conf {
+	height: 100%;
+	overflow: scroll;
+}
+
+.conferenceHeader {
+	background: $taf;
+	color: #fff;
+	width: 100%;
+	text-align: center;
+	margin-bottom: 10px;
+}
+
+.conferenceFeed {
+	font-size: 14px;
+}
+
+.confAuthor {
+	color: #000;
+	font-size: 14px;
+	font-weight: bold;
+	margin-right: 10px;
+}
+
+.confText {
+	font-size: 12px;
+	color: $greyText;
+}
+
+.mb0 {
+	margin-bottom: 0;
+}
+
+/* FAQ */
+.faqQ {
+	font-size: 14px;
+	color: #000;
+	font-weight: bold;
+}
+
+.faqA {
+	font-size: 12px;
+	color: $greyText;
+}
+
+.bbar {
+	border-top: 1px solid #fff;
+	border-bottom: 1px solid #fff;
+}
+
+h6 {
+	color: #818285;
+	text-transform: uppercase;
+	font-size: 16px;
+	font-family: "proxima-nova", sans-serif;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 26px;
+	margin: 30px 0px 15px 0px;
+	display: block;
+}
+
+/*PRESENTATIONS*/
+.pIcon {
+	width: 10%;
+	height: 20px;
+	float: left;
+	background: url('https: //www.trusteducationfoundation.com/mobile/icon_file2t.png') no-repeat center;
+	background-size: 20px 20px;
+}
+
+.pTitle {
+	float: left;
+	width: 90%;
+	font-size: 12px;
+	margin-bottom: 10px;
+}
+
+.pTitle a {
+	text-decoration: none;
+}
+
+.iframe-wrapper iframe {
+	width: 100%;
+	height: 100%;
+}
+
+.list .item.item-accordion {
+	line-height: inherit;
+	padding-top: 15px;
+	padding-bottom: 15px;
+	transition: 0.09s all linear;
+}
+
+.list .item.item-accordion.ng-hide {
+	line-height: 0px;
+}
+
+.list .item.item-accordion.ng-hide-add,
+.list .item.item-accordion.ng-hide-remove {
+	display: block !important;
+}
+
+ion-view,.pane,.view {
+	background-color: #E6E7E8;
+}
+
+body.platform-ios {
+	font-family: Montserrat, sans-serif;
+}
+
+.ionic-body.platform-ios {
+	font-family: Montserrat, sans-serif;
+}
+
+body.platform-android {
+	font-family: Montserrat, sans-serif;
+}
+
+.ionic-body.platform-android {
+	font-family: Montserrat, sans-serif;
+}
+
+h1,h2,h3,h4,h5,h6,.h1,.h2,.h3,.h4,.h5,.h6,.tab-item,input,button,select,textarea {
+	font-family: inherit;
+}
+

@@ -1,0 +1,41 @@
+<ion-view title="FAQ">
+  <ion-content padding="false" class="manual-remove-top-padding has-header" scroll="false" overflow-scroll="true">
+    <div id="cover" ng-show="loading">
+      <div style="color:#fff;text-align:center;">LOADING</div>
+      <div style="margin:100px auto;width:10px;height:100%;">
+        <ion-spinner></ion-spinner>
+      </div>
+    </div>
+    <ion-scroll class="top-container">
+      <ion-list>
+        <div ng-repeat="f in faqs">
+          <ion-item class="item-stable item-text-wrap" ng-click="toggleGroup(f)" ng-class="{active: isGroupShown(f)}" style="font-size:12px;font-weight:bold;">
+
+            <div style="float:left;width:90%;">
+              {{f.question[0]}}
+            </div>
+            <div style="float:right;width:10%;text-align:center;">
+              <i class="icon" ng-class="isGroupShown(f) ? 'ion-minus' : 'ion-plus'"></i>
+            </div>
+            <br clear="all">
+          </ion-item>
+          <ion-item class="item-accordion item-text-wrap" ng-show="isGroupShown(f)" style="font-size:12px;" dynamic="f.answer[0]">
+
+          </ion-item>
+        </div>
+      </ion-list>
+    </ion-scroll>
+
+
+
+
+    <div class="bottom-container">
+      <div class="button-bar">
+        <a ui-sref="nETWORKINGEVENTS" style="border-radius:0px 0px 0px 0px;" class="button button-dark  btnb1"></a>
+        <a ui-sref="cONFERENCEFEED" style="border-radius:0px 0px 0px 0px;" class="button button-dark  btnb2"></a>
+        <a ui-sref="pRESENTATIONS" style="border-radius:0px 0px 0px 0px;" class="button button-dark  btnb3"></a>
+        <a ui-sref="eVALUATIONS" style="border-radius:0px 0px 0px 0px;" class="button button-dark  btnb4"></a>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>

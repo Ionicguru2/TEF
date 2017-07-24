@@ -1,0 +1,6 @@
+{
+  "name": "TEF",
+  "app_id": "",
+  "type": "ionic1",
+  "gulpStartupTasks": ["sass", "watch"]
+}
