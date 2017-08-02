@@ -1,0 +1,29 @@
+<ion-side-menus enable-menu-with-back-views="false">
+    <ion-side-menu-content>
+        <ion-nav-bar class="bar-balanced">
+        <ion-nav-back-button></ion-nav-back-button>
+        <ion-nav-buttons side="left">
+            <button class="button button-icon button-clear ion-navicon" menu-toggle="left"></button>
+        </ion-nav-buttons>
+        </ion-nav-bar>
+
+        <ion-nav-view name="menuContent"></ion-nav-view>
+
+    </ion-side-menu-content>
+    
+    <ion-side-menu side="left" style="background-color:#86888B;">
+        <!-- <ion-content ng-controller="menuCtrl" padding="false" style="top:0px !important;" class="side-menu-left menuwide"> -->
+        <ion-content padding="false" style="top:0px !important;" class="side-menu-left menuwide">
+        <div ng-click="goHome();toggleLeftSideMenu();" class="bottom-menu creator-container"></div>
+        <ion-list>
+            <ion-item ui-sref="app.tab.home" menu-close="" class="menuList">HOME</ion-item>
+            <ion-item ui-sref="app.tab.eventOverview" menu-close="" class="menuList">EVENT OVERVIEW</ion-item>
+            <ion-item ui-sref="app.tab.agenda" menu-close="" class="menuList">AGENDA</ion-item>
+            <ion-item ui-sref="app.tab.speakers" menu-close="" class="menuList">SPEAKERS</ion-item>
+            <ion-item ui-sref="app.tab.attendees" menu-close="" class="menuList">ATTENDEES</ion-item>
+            <ion-item ui-sref="app.tab.sponsors" menu-close="" class="menuList">SPONSORS</ion-item>
+            <ion-item ui-sref="app.tab.faqs" menu-close="" class="menuList">FAQs</ion-item>
+        </ion-list>
+        </ion-content>
+    </ion-side-menu>
+</ion-side-menus>

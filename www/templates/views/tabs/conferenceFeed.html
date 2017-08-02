@@ -1,0 +1,80 @@
+<ion-view title="CONFERENCE FEED">
+  <ion-content padding="false" class=" manual-remove-top-padding has-header" scroll="false">
+    <div id="cover" ng-show="loading">
+      <div style="color:#fff;text-align:center;">LOADING</div>
+      <div style="margin:100px auto;width:10px;height:100%;">
+        <ion-spinner></ion-spinner>
+      </div>
+    </div>
+    <ion-scroll class="top-container">
+      <div>
+        <div class="conferenceHeader" ng-if="messages1.day">
+          {{messages1.day}}
+        </div>
+
+        <div class="list mb0">
+          <div class="item item-icon-left conferenceFeed item-text-wrap" href="#" ng-repeat="m in messages1a" ng-if="m.message">
+            <i class="icon ion-ios-contact"></i>
+            <span class="confAuthor">{{m.author}}</span>
+            <span class="confText"> {{m.time}}
+              <br> {{m.message}}
+            </span>
+
+          </div>
+
+        </div>
+        <div class="conferenceHeader" ng-if="messages2.day">
+          {{messages2.day}}
+        </div>
+        <div class="list mb0">
+          <div class="item item-icon-left conferenceFeed item-text-wrap" href="#" ng-repeat="m in messages2a" ng-if="m.message">
+            <i class="icon ion-ios-contact"></i>
+            <span class="confAuthor">{{m.author}}</span>
+            <span class="confText"> {{m.time}}
+              <br> {{m.message}}
+            </span>
+          </div>
+        </div>
+
+        <div class="conferenceHeader" ng-if="messages3.day">
+          {{messages3.day}}
+        </div>
+        <div class="list mb0">
+          <div class="item item-icon-left conferenceFeed item-text-wrap" href="#" ng-repeat="m in messages3a" ng-if="m.message">
+            <i class="icon ion-ios-contact"></i>
+            <span class="confAuthor">{{m.author}}</span>
+            <span class="confText"> {{m.time}}
+              <br> {{m.message}}
+            </span>
+          </div>
+        </div>
+
+        <div class="conferenceHeader" ng-if="messages4.day">
+          {{messages4.day}}
+        </div>
+        <div class="list mb0">
+          <div class="item item-icon-left conferenceFeed item-text-wrap" href="#" ng-repeat="m in messages4a" ng-if="m.message">
+            <i class="icon ion-ios-contact"></i>
+            <span class="confAuthor">{{m.author}}</span>
+            <span class="confText"> {{m.time}}
+              <br> {{m.message}}
+            </span>
+          </div>
+        </div>
+
+        <div class="conferenceHeader" ng-if="messages5.day">
+          {{messages5.day}}
+        </div>
+        <div class="list mb0">
+          <div class="item item-icon-left conferenceFeed item-text-wrap" href="#" ng-repeat="m in messages5a" ng-if="m.message">
+            <i class="icon ion-ios-contact"></i>
+            <span class="confAuthor">{{m.author}}</span>
+            <span class="confText"> {{m.time}}
+              <br> {{m.message}}
+            </span>
+          </div>
+        </div>
+      </div>
+    </ion-scroll>
+  </ion-content>
+</ion-view>

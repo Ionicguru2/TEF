@@ -1,0 +1,23 @@
+<ion-view title="SPEAKERS">
+  <ion-content padding="false" class="has-header" overflow-scroll="true">
+
+    <div id="cover" ng-show="loading">
+      <div style="color:#fff;text-align:center;">LOADING</div>
+      <div style="margin:100px auto;width:10px;height:100%;">
+        <ion-spinner></ion-spinner>
+      </div>
+    </div>
+
+    <div class="list">
+      <div ng-repeat="speaker in speakers" ng-click="getSpeaker(speaker.id)" class="speaker item item-thumbnail-left">
+
+        <img ng-src="{{ speaker.thumbnail_images.full.url }}" style="top:0;left:0;max-width:100px;max-height:100px;">
+        <h2 style="text-transform:uppercase">{{ speaker.title_plain }}</h2>
+        <h4 style="color:#fff;">{{ speaker.custom_fields.title[0] }}</h4>
+        <h4 style="color:#fff;">{{ speaker.custom_fields.company[0] }}</h4>
+        <div style="position:absolute;top:6px;right:5px;color:#000;font-size:14px;" class="ion-chevron-right"></div>
+
+      </div>
+    </div>
+  </ion-content>
+</ion-view>
