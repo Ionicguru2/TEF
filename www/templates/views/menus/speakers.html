@@ -1,12 +1,5 @@
 <ion-view title="SPEAKERS">
-  <ion-content padding="false" class="has-header" overflow-scroll="true">
-
-    <div id="cover" ng-show="loading">
-      <div style="color:#fff;text-align:center;">LOADING</div>
-      <div style="margin:100px auto;width:10px;height:100%;">
-        <ion-spinner></ion-spinner>
-      </div>
-    </div>
+  <ion-content padding="false" class="manual-remove-top-padding">
 
     <div class="list">
       <div ng-repeat="speaker in speakers" ng-click="getSpeaker(speaker.id)" class="speaker item item-thumbnail-left">
@@ -19,5 +12,6 @@
 
       </div>
     </div>
+    
   </ion-content>
 </ion-view>

@@ -1,328 +1,111 @@
 <ion-view title="SPONSORS">
-  <ion-content padding="false" class=" manual-remove-top-padding has-header" scroll="false" overflow-scroll="true">
+  <ion-content padding="false" class="manual-remove-top-padding">
 
-    <div id="cover" ng-show="loading">
-      <div style="color:#fff;text-align:center;">LOADING</div>
-      <div style="margin:100px auto;width:10px;height:100%;">
-        <ion-spinner></ion-spinner>
+    <ion-list ng-repeat="g in groups">
+      <div class="item item-body bgList" ng-class="g" ng-click="toggleGroup(g);loadData(g);">
+        <div>
+          <div class="agendaMain" style="float:left">{{g | uppercase}}</div>
+          <div class="agendaMain" ng-class="!isGroupShown(g) ? 'ion-chevron-right':'ion-chevron-down'" style="float:right"></div>
+        </div>
       </div>
-    </div>
+      <div class="item item-body" ng-repeat="d in sponsors" ng-show="isGroupShown(g)" ng-if="d.custom_fields.publish[0]">
+        <div>
+          <h2>{{d.title}}</h2>
+          <div ng-repeat="a in d.attachments" ng-if="a.title=='logo'">
+            <div>
+              <a href="#" ng-click="gotoLink('{{d.custom_fields.url[0]}}')">
+                <img class="sponsorLogo" src="{{a.url}}">
+              </a>
+            </div>
+            <div style="font-size:8px;" ng-bind-html="d.content"></div>
 
-    <ion-scroll class="top-container">
-      <ion-list>
-        <div class="item item-body bgList platinum" ng-click="toggleGroup('p');loadData('platinum');">
-          <div>
-            <div class="agendaMain" style="float:left">PLATINUM</div>
-            <div class="agendaMain" ng-class="!isGroupShown('p') ? 'ion-chevron-right':'ion-chevron-down'" style="float:right"></div>
-          </div>
-        </div>
-        <div class="item item-body" ng-repeat="d in sponsors" ng-show="isGroupShown('p')" ng-if="d.custom_fields.publish[0]">
-          <div>
-            <h2>{{d.title}}</h2>
-            <div ng-repeat="a in d.attachments" ng-if="a.title=='logo'" class="sponsorSection">
-              <div>
-                <a href="#" ng-click="gotoLink('{{d.custom_fields.url[0]}}')">
-                  <img class="sponsorLogo" src="{{a.url}}">
-                </a>
+            <div ng-repeat="a in d.attachments">
+
+              <div class="list" ng-if="a.description=='rep0'">
+                <div class="item item-thumbnail-left">
+
+                  <img ng-src="{{ a.url }}">
+                  <h3 style="text-transform:uppercase;margin:0;">{{ d.custom_fields.rep_0_rep_name[0] }}</h3>
+                  <h4 style="margin:0;">{{ d.custom_fields.rep_0_rep_title[0] }}</h4>
+                  <h4 style="margin:0;">
+                    <a href="mailto:{{ d.custom_fields.rep_0_rep_email[0] }}">{{ d.custom_fields.rep_0_rep_email[0] }}</a>
+                  </h4>
+                  <h4 style="margin:0;">
+                    <a href="tel:{{ d.custom_fields.rep_0_rep_phone_number[0] }}">{{ d.custom_fields.rep_0_rep_phone_number[0] }}</a>
+                  </h4>
+
+                </div>
               </div>
-              <div style="font-size:8px;" ng-bind-html="d.content"></div>
 
-              <div ng-repeat="a in d.attachments">
+              <div class="list" ng-if="a.description=='rep1'">
+                <div class="item item-thumbnail-left">
 
-                <div class="list" ng-if="a.description=='rep0'">
-                  <div class="item item-thumbnail-left">
+                  <img ng-src="{{ a.url }}">
+                  <h3 style="text-transform:uppercase;margin:0;">{{ d.custom_fields.rep_1_rep_name[0] }}</h3>
+                  <h4 style="margin:0;">{{ d.custom_fields.rep_1_rep_title[0] }}</h4>
+                  <h4 style="margin:0;">
+                    <a href="mailto:{{ d.custom_fields.rep_1_rep_email[0] }}">{{ d.custom_fields.rep_1_rep_email[0] }}</a>
+                  </h4>
+                  <h4 style="margin:0;">
+                    <a href="tel:{{ d.custom_fields.rep_1_rep_phone_number[0] }}">{{ d.custom_fields.rep_1_rep_phone_number[0] }}</a>
+                  </h4>
 
-                    <img ng-src="{{ a.url }}">
-                    <h3 style="text-transform:uppercase;margin:0;">{{ d.custom_fields.rep_0_rep_name[0] }}</h3>
-                    <h4 style="margin:0;">{{ d.custom_fields.rep_0_rep_title[0] }}</h4>
-                    <h4 style="margin:0;">
-                      <a href="mailto:{{ d.custom_fields.rep_0_rep_email[0] }}">{{ d.custom_fields.rep_0_rep_email[0] }}</a>
-                    </h4>
-                    <h4 style="margin:0;">
-                      <a href="tel:{{ d.custom_fields.rep_0_rep_phone_number[0] }}">{{ d.custom_fields.rep_0_rep_phone_number[0] }}</a>
-                    </h4>
-
-                  </div>
                 </div>
-
-                <div class="list" ng-if="a.description=='rep1'">
-                  <div class="item item-thumbnail-left">
-
-                    <img ng-src="{{ a.url }}">
-                    <h3 style="text-transform:uppercase;margin:0;">{{ d.custom_fields.rep_1_rep_name[0] }}</h3>
-                    <h4 style="margin:0;">{{ d.custom_fields.rep_1_rep_title[0] }}</h4>
-                    <h4 style="margin:0;">
-                      <a href="mailto:{{ d.custom_fields.rep_1_rep_email[0] }}">{{ d.custom_fields.rep_1_rep_email[0] }}</a>
-                    </h4>
-                    <h4 style="margin:0;">
-                      <a href="tel:{{ d.custom_fields.rep_1_rep_phone_number[0] }}">{{ d.custom_fields.rep_1_rep_phone_number[0] }}</a>
-                    </h4>
-                  </div>
-                </div>
-
-                <div class="list" ng-if="a.description=='rep2'">
-                  <div class="item item-thumbnail-left">
-
-                    <img ng-src="{{ a.url }}">
-                    <h3 style="text-transform:uppercase;margin:0;">{{ d.custom_fields.rep_2_rep_name[0] }}</h3>
-                    <h4 style="margin:0;">{{ d.custom_fields.rep_2_rep_title[0] }}</h4>
-                    <h4 style="margin:0;">
-                      <a href="mailto:{{ d.custom_fields.rep_2_rep_email[0] }}">{{ d.custom_fields.rep_2_rep_email[0] }}</a>
-                    </h4>
-                    <h4 style="margin:0;">
-                      <a href="tel:{{ d.custom_fields.rep_2_rep_phone_number[0] }}">{{ d.custom_fields.rep_2_rep_phone_number[0] }}</a>
-                    </h4>
-
-                  </div>
-                </div>
-
-                <div class="list" ng-if="a.description=='rep3'">
-                  <div class="item item-thumbnail-left">
-
-                    <img ng-src="{{ a.url }}">
-                    <h3 style="text-transform:uppercase;margin:0;">{{ d.custom_fields.rep_3_rep_name[0] }}</h3>
-                    <h4 style="margin:0;">{{ d.custom_fields.rep_3_rep_title[0] }}</h4>
-                    <h4 style="margin:0;">
-                      <a href="mailto:{{ d.custom_fields.rep_3_rep_email[0] }}">{{ d.custom_fields.rep_3_rep_email[0] }}</a>
-                    </h4>
-                    <h4 style="margin:0;">
-                      <a href="tel:{{ d.custom_fields.rep_3_rep_phone_number[0] }}">{{ d.custom_fields.rep_3_rep_phone_number[0] }}</a>
-                    </h4>
-
-                  </div>
-                </div>
-
-                <div class="list" ng-if="a.description=='rep4'">
-                  <div class="item item-thumbnail-left">
-
-                    <img ng-src="{{ a.url }}">
-                    <h3 style="text-transform:uppercase;margin:0;">{{ d.custom_fields.rep_4_rep_name[0] }}</h3>
-                    <h4 style="margin:0;">{{ d.custom_fields.rep_4_rep_title[0] }}</h4>
-                    <h4 style="margin:0;">
-                      <a href="mailto:{{ d.custom_fields.rep_4_rep_email[0] }}">{{ d.custom_fields.rep_4_rep_email[0] }}</a>
-                    </h4>
-                    <h4 style="margin:0;">
-                      <a href="tel:{{ d.custom_fields.rep_4_rep_phone_number[0] }}">{{ d.custom_fields.rep_4_rep_phone_number[0] }}</a>
-                    </h4>
-
-                  </div>
-                </div>
-
               </div>
+
+              <div class="list" ng-if="a.description=='rep2'">
+                <div class="item item-thumbnail-left">
+
+                  <img ng-src="{{ a.url }}">
+                  <h3 style="text-transform:uppercase;margin:0;">{{ d.custom_fields.rep_2_rep_name[0] }}</h3>
+                  <h4 style="margin:0;">{{ d.custom_fields.rep_2_rep_title[0] }}</h4>
+                  <h4 style="margin:0;">
+                    <a href="mailto:{{ d.custom_fields.rep_2_rep_email[0] }}">{{ d.custom_fields.rep_2_rep_email[0] }}</a>
+                  </h4>
+                  <h4 style="margin:0;">
+                    <a href="tel:{{ d.custom_fields.rep_2_rep_phone_number[0] }}">{{ d.custom_fields.rep_2_rep_phone_number[0] }}</a>
+                  </h4>
+
+                </div>
+              </div>
+
+              <div class="list" ng-if="a.description=='rep3'">
+                <div class="item item-thumbnail-left">
+
+                  <img ng-src="{{ a.url }}">
+                  <h3 style="text-transform:uppercase;margin:0;">{{ d.custom_fields.rep_3_rep_name[0] }}</h3>
+                  <h4 style="margin:0;">{{ d.custom_fields.rep_3_rep_title[0] }}</h4>
+                  <h4 style="margin:0;">
+                    <a href="mailto:{{ d.custom_fields.rep_3_rep_email[0] }}">{{ d.custom_fields.rep_3_rep_email[0] }}</a>
+                  </h4>
+                  <h4 style="margin:0;">
+                    <a href="tel:{{ d.custom_fields.rep_3_rep_phone_number[0] }}">{{ d.custom_fields.rep_3_rep_phone_number[0] }}</a>
+                  </h4>
+
+                </div>
+              </div>
+
+              <div class="list" ng-if="a.description=='rep4'">
+                <div class="item item-thumbnail-left">
+
+                  <img ng-src="{{ a.url }}">
+                  <h3 style="text-transform:uppercase;margin:0;">{{ d.custom_fields.rep_4_rep_name[0] }}</h3>
+                  <h4 style="margin:0;">{{ d.custom_fields.rep_4_rep_title[0] }}</h4>
+                  <h4 style="margin:0;">
+                    <a href="mailto:{{ d.custom_fields.rep_4_rep_email[0] }}">{{ d.custom_fields.rep_4_rep_email[0] }}</a>
+                  </h4>
+                  <h4 style="margin:0;">
+                    <a href="tel:{{ d.custom_fields.rep_4_rep_phone_number[0] }}">{{ d.custom_fields.rep_4_rep_phone_number[0] }}</a>
+                  </h4>
+
+                </div>
+              </div>
+
             </div>
           </div>
         </div>
-      </ion-list>
-      <ion-list>
-        <div class="item item-body bgList gold" ng-click="toggleGroup('g');loadData('gold');">
-          <div>
-            <div class="agendaMain" style="float:left">GOLD</div>
-            <div class="agendaMain" ng-class="!isGroupShown('g') ? 'ion-chevron-right':'ion-chevron-down'" style="float:right"></div>
-          </div>
-        </div>
-        <div class="item item-body" ng-repeat="d in sponsors" ng-show="isGroupShown('g')" ng-if="d.custom_fields.publish[0]">
-          <div>
-            <h2>{{d.title}}</h2>
-            <div ng-repeat="a in d.attachments" ng-if="a.title=='logo'">
-              <div>
-                <a href="#" ng-click="gotoLink('{{d.custom_fields.url[0]}}')">
-                  <img class="sponsorLogo" src="{{a.url}}">
-                </a>
-              </div>
-              <div style="font-size:8px;" ng-bind-html="d.content"></div>
+      </div>
+    </ion-list>
 
-              <div ng-repeat="a in d.attachments">
-
-                <div class="list" ng-if="a.description=='rep0'">
-                  <div class="item item-thumbnail-left">
-
-                    <img ng-src="{{ a.url }}">
-                    <h3 style="text-transform:uppercase;margin:0;">{{ d.custom_fields.rep_0_rep_name[0] }}</h3>
-                    <h4 style="margin:0;">{{ d.custom_fields.rep_0_rep_title[0] }}</h4>
-                    <h4 style="margin:0;">
-                      <a href="mailto:{{ d.custom_fields.rep_0_rep_email[0] }}">{{ d.custom_fields.rep_0_rep_email[0] }}</a>
-                    </h4>
-                    <h4 style="margin:0;">
-                      <a href="tel:{{ d.custom_fields.rep_0_rep_phone_number[0] }}">{{ d.custom_fields.rep_0_rep_phone_number[0] }}</a>
-                    </h4>
-
-                  </div>
-                </div>
-
-                <div class="list" ng-if="a.description=='rep1'">
-                  <div class="item item-thumbnail-left">
-
-                    <img ng-src="{{ a.url }}">
-                    <h3 style="text-transform:uppercase;margin:0;">{{ d.custom_fields.rep_1_rep_name[0] }}</h3>
-                    <h4 style="margin:0;">{{ d.custom_fields.rep_1_rep_title[0] }}</h4>
-                    <h4 style="margin:0;">
-                      <a href="mailto:{{ d.custom_fields.rep_1_rep_email[0] }}">{{ d.custom_fields.rep_1_rep_email[0] }}</a>
-                    </h4>
-                    <h4 style="margin:0;">
-                      <a href="tel:{{ d.custom_fields.rep_1_rep_phone_number[0] }}">{{ d.custom_fields.rep_1_rep_phone_number[0] }}</a>
-                    </h4>
-
-                  </div>
-                </div>
-
-                <div class="list" ng-if="a.description=='rep2'">
-                  <div class="item item-thumbnail-left">
-
-                    <img ng-src="{{ a.url }}">
-                    <h3 style="text-transform:uppercase;margin:0;">{{ d.custom_fields.rep_2_rep_name[0] }}</h3>
-                    <h4 style="margin:0;">{{ d.custom_fields.rep_2_rep_title[0] }}</h4>
-                    <h4 style="margin:0;">
-                      <a href="mailto:{{ d.custom_fields.rep_2_rep_email[0] }}">{{ d.custom_fields.rep_2_rep_email[0] }}</a>
-                    </h4>
-                    <h4 style="margin:0;">
-                      <a href="tel:{{ d.custom_fields.rep_2_rep_phone_number[0] }}">{{ d.custom_fields.rep_2_rep_phone_number[0] }}</a>
-                    </h4>
-
-                  </div>
-                </div>
-
-                <div class="list" ng-if="a.description=='rep3'">
-                  <div class="item item-thumbnail-left">
-
-                    <img ng-src="{{ a.url }}">
-                    <h3 style="text-transform:uppercase;margin:0;">{{ d.custom_fields.rep_3_rep_name[0] }}</h3>
-                    <h4 style="margin:0;">{{ d.custom_fields.rep_3_rep_title[0] }}</h4>
-                    <h4 style="margin:0;">
-                      <a href="mailto:{{ d.custom_fields.rep_3_rep_email[0] }}">{{ d.custom_fields.rep_3_rep_email[0] }}</a>
-                    </h4>
-                    <h4 style="margin:0;">
-                      <a href="tel:{{ d.custom_fields.rep_3_rep_phone_number[0] }}">{{ d.custom_fields.rep_3_rep_phone_number[0] }}</a>
-                    </h4>
-
-                  </div>
-                </div>
-
-                <div class="list" ng-if="a.description=='rep4'">
-                  <div class="item item-thumbnail-left">
-
-                    <img ng-src="{{ a.url }}">
-                    <h3 style="text-transform:uppercase;margin:0;">{{ d.custom_fields.rep_4_rep_name[0] }}</h3>
-                    <h4 style="margin:0;">{{ d.custom_fields.rep_4_rep_title[0] }}</h4>
-                    <h4 style="margin:0;">
-                      <a href="mailto:{{ d.custom_fields.rep_4_rep_email[0] }}">{{ d.custom_fields.rep_4_rep_email[0] }}</a>
-                    </h4>
-                    <h4 style="margin:0;">
-                      <a href="tel:{{ d.custom_fields.rep_4_rep_phone_number[0] }}">{{ d.custom_fields.rep_4_rep_phone_number[0] }}</a>
-                    </h4>
-
-                  </div>
-                </div>
-
-              </div>
-            </div>
-          </div>
-        </div>
-      </ion-list>
-      <ion-list>
-        <div class="item item-body bgList silver" ng-click="toggleGroup('s');loadData('silver');">
-          <div>
-            <div class="agendaMain" style="float:left">SILVER</div>
-            <div class="agendaMain" ng-class="!isGroupShown('s') ? 'ion-chevron-right':'ion-chevron-down'" style="float:right"></div>
-          </div>
-        </div>
-        <div class="item item-body" ng-repeat="d in sponsors" ng-show="isGroupShown('s')" ng-if="d.custom_fields.publish[0]">
-          <div>
-            <h2>{{d.title}}</h2>
-            <div ng-repeat="a in d.attachments" ng-if="a.title=='logo'">
-              <div>
-                <a href="#" ng-click="gotoLink('{{d.custom_fields.url[0]}}')">
-                  <img class="sponsorLogo" src="{{a.url}}">
-                </a>
-              </div>
-              <div style="font-size:8px;" ng-bind-html="d.content"></div>
-
-              <div ng-repeat="a in d.attachments">
-
-                <div class="list" ng-if="a.description=='rep0'">
-                  <div class="item item-thumbnail-left">
-
-                    <img ng-src="{{ a.url }}">
-                    <h3 style="text-transform:uppercase;margin:0;">{{ d.custom_fields.rep_0_rep_name[0] }}</h3>
-                    <h4 style="margin:0;">{{ d.custom_fields.rep_0_rep_title[0] }}</h4>
-                    <h4 style="margin:0;">
-                      <a href="mailto:{{ d.custom_fields.rep_0_rep_email[0] }}">{{ d.custom_fields.rep_0_rep_email[0] }}</a>
-                    </h4>
-                    <h4 style="margin:0;">
-                      <a href="tel:{{ d.custom_fields.rep_0_rep_phone_number[0] }}">{{ d.custom_fields.rep_0_rep_phone_number[0] }}</a>
-                    </h4>
-
-                  </div>
-                </div>
-
-                <div class="list" ng-if="a.description=='rep1'">
-                  <div class="item item-thumbnail-left">
-
-                    <img ng-src="{{ a.url }}">
-                    <h3 style="text-transform:uppercase;margin:0;">{{ d.custom_fields.rep_1_rep_name[0] }}</h3>
-                    <h4 style="margin:0;">{{ d.custom_fields.rep_1_rep_title[0] }}</h4>
-                    <h4 style="margin:0;">
-                      <a href="mailto:{{ d.custom_fields.rep_1_rep_email[0] }}">{{ d.custom_fields.rep_1_rep_email[0] }}</a>
-                    </h4>
-                    <h4 style="margin:0;">
-                      <a href="tel:{{ d.custom_fields.rep_1_rep_phone_number[0] }}">{{ d.custom_fields.rep_1_rep_phone_number[0] }}</a>
-                    </h4>
-
-                  </div>
-                </div>
-
-                <div class="list" ng-if="a.description=='rep2'">
-                  <div class="item item-thumbnail-left">
-
-                    <img ng-src="{{ a.url }}">
-                    <h3 style="text-transform:uppercase;margin:0;">{{ d.custom_fields.rep_2_rep_name[0] }}</h3>
-                    <h4 style="margin:0;">{{ d.custom_fields.rep_2_rep_title[0] }}</h4>
-                    <h4 style="margin:0;">
-                      <a href="mailto:{{ d.custom_fields.rep_2_rep_email[0] }}">{{ d.custom_fields.rep_2_rep_email[0] }}</a>
-                    </h4>
-                    <h4 style="margin:0;">
-                      <a href="tel:{{ d.custom_fields.rep_2_rep_phone_number[0] }}">{{ d.custom_fields.rep_2_rep_phone_number[0] }}</a>
-                    </h4>
-
-                  </div>
-                </div>
-
-                <div class="list" ng-if="a.description=='rep3'">
-                  <div class="item item-thumbnail-left">
-
-                    <img ng-src="{{ a.url }}">
-                    <h3 style="text-transform:uppercase;margin:0;">{{ d.custom_fields.rep_3_rep_name[0] }}</h3>
-                    <h4 style="margin:0;">{{ d.custom_fields.rep_3_rep_title[0] }}</h4>
-                    <h4 style="margin:0;">
-                      <a href="mailto:{{ d.custom_fields.rep_3_rep_email[0] }}">{{ d.custom_fields.rep_3_rep_email[0] }}</a>
-                    </h4>
-                    <h4 style="margin:0;">
-                      <a href="tel:{{ d.custom_fields.rep_3_rep_phone_number[0] }}">{{ d.custom_fields.rep_3_rep_phone_number[0] }}</a>
-                    </h4>
-
-                  </div>
-                </div>
-
-                <div class="list" ng-if="a.description=='rep4'">
-                  <div class="item item-thumbnail-left">
-
-                    <img ng-src="{{ a.url }}">
-                    <h3 style="text-transform:uppercase;margin:0;">{{ d.custom_fields.rep_4_rep_name[0] }}</h3>
-                    <h4 style="margin:0;">{{ d.custom_fields.rep_4_rep_title[0] }}</h4>
-                    <h4 style="margin:0;">
-                      <a href="mailto:{{ d.custom_fields.rep_4_rep_email[0] }}">{{ d.custom_fields.rep_4_rep_email[0] }}</a>
-                    </h4>
-                    <h4 style="margin:0;">
-                      <a href="tel:{{ d.custom_fields.rep_4_rep_phone_number[0] }}">{{ d.custom_fields.rep_4_rep_phone_number[0] }}</a>
-                    </h4>
-
-                  </div>
-                </div>
-
-              </div>
-            </div>
-          </div>
-        </div>
-      </ion-list>
-    </ion-scroll>
   </ion-content>
 </ion-view>

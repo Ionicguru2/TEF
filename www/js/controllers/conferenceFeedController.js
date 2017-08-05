@@ -1,26 +1,61 @@
-angular.module('app.controllers', [])
+angular.module('app')
   
-.controller('conferenceFeedController', function ($scope, $stateParams, $state, $firebaseObject, $firebaseArray) {
+.controller('conferenceFeedController', function ($scope, $stateParams, $state, $firebaseObject, $firebaseArray, $timeout, $ionicLoading, $ionicScrollDelegate) {
 
-    $scope.loading=true;
-    $scope.params = $stateParams;
+    $scope.confDays = [];
+    $scope.isFirstTime = true;
+
+    $scope.isToday = function(date) {
+        date = new Date(date).setHours(0, 0, 0, 0);
+        var today = new Date().setHours(0, 0, 0, 0);
+        return date == today;
+    }
+
+    $scope.toggleGroup = function(group) {
+        $scope.isFirstTime = false;
+        if ($scope.isGroupShown(group)) {
+            $scope.shownGroup = null;
+        } else {
+            $scope.shownGroup = group;
+        }
+        $timeout(function() {
+            $ionicScrollDelegate.scrollTop();
+            $ionicScrollDelegate.resize();
+        }, 100)
+    };
+    $scope.isGroupShown = function(group) {
+        return $scope.isFirstTime && group.isToday || $scope.shownGroup === group;
+    };
+
+
+    $ionicLoading.show();
 
     var ref = firebase.database().ref();
-    // create a synchronized array
-    $scope.messages1 =$firebaseObject(ref.child("message1"));
-    $scope.messages1a = $firebaseArray(ref.child("message1").orderByChild("order"));
+    var promises = [
+        $firebaseObject(ref.child("message1")).$loaded(),
+        $firebaseObject(ref.child("message2")).$loaded(),
+        $firebaseObject(ref.child("message3")).$loaded(),
+        $firebaseObject(ref.child("message4")).$loaded(),
+        $firebaseObject(ref.child("message5")).$loaded(),
+        $firebaseArray(ref.child("message1").orderByChild("order")).$loaded(),
+        $firebaseArray(ref.child("message2").orderByChild("order")).$loaded(),
+        $firebaseArray(ref.child("message3").orderByChild("order")).$loaded(),
+        $firebaseArray(ref.child("message4").orderByChild("order")).$loaded(),
+        $firebaseArray(ref.child("message5").orderByChild("order")).$loaded()
+    ];
 
-    $scope.messages2 =$firebaseObject(ref.child("message2"));
-    $scope.messages2a = $firebaseArray(ref.child("message2").orderByChild("order"));
-
-    $scope.messages3 =$firebaseObject(ref.child("message3"));
-    $scope.messages3a = $firebaseArray(ref.child("message3").orderByChild("order"));
-
-    $scope.messages4 =$firebaseObject(ref.child("message4"));
-    $scope.messages4a = $firebaseArray(ref.child("message4").orderByChild("order"));
-
-    $scope.messages5 =$firebaseObject(ref.child("message5"));
-    $scope.messages5a = $firebaseArray(ref.child("message5").orderByChild("order"));
-
-    $scope.loading=false;
+    Promise.all(promises).then(function(res) {
+        
+        for (var i = 0; i < res.length / 2; i ++)
+        {
+            var confDay = {
+                dayObj: res[i],
+                messages: res[i + res.length/2],
+                isToday: $scope.isToday(res[i].day)
+            };
+            $scope.confDays.push(confDay);
+        }
+        
+        $ionicLoading.hide();
+    });
 })

@@ -1,6 +1,6 @@
 angular.module('app')
   
-.controller('attendeesController', function ($scope, $stateParams, $state, $firebaseObject, $location, $anchorScroll, Attendee) {
+.controller('attendeesController', function ($scope, $stateParams, $state, $firebaseObject, $location, $anchorScroll, Attendee, $timeout, $ionicLoading) {
 
     $scope.sortLast=true;
     
@@ -56,10 +56,10 @@ angular.module('app')
             // $scope.attendees2 = $scope.toArray($scope.attendees);
             // console.log($scope.attendees2);
 
-            $scope.loading=false;
+            $ionicLoading.hide();
         });
     }
-    $scope.loading=true;
+    $ionicLoading.show();
     $scope.loadData()
     //setTimeout( $scope.loadData(), 100);
     

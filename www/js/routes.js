@@ -30,6 +30,15 @@ angular.module('app.routes', [])
         }
       }
     })
+    .state('app.tab.networkingEvents', {
+      url: '/networkingEvents',
+      views: {
+        'tab-networkingEvents': {
+          templateUrl: 'templates/views/tabs/networkingEvents.html',
+          controller: 'networkingEventsController'
+        }
+      }
+    })
     .state('app.tab.conferenceFeed', {
       url: '/conferenceFeed',
       views: {

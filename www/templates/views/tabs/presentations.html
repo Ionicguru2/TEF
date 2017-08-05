@@ -1,18 +1,14 @@
 <ion-view title="PRESENTATIONS">
-  <ion-content padding="false" class=" manual-remove-top-padding has-header" overflow-scroll="true">
-    <div id="cover" ng-show="loading">
-      <div style="color:#fff;text-align:center;">LOADING</div>
-      <div style="margin:100px auto;width:10px;height:100%;">
-        <ion-spinner></ion-spinner>
-      </div>
-    </div>
-    <ion-scroll class="top-container scroll-view ionic-scroll scroll-y">
-      <div ng-repeat="p in desc">
-        <div class="conferenceHeader">
-          {{p.mTitle}}
-        </div>
+  <ion-content padding="false" class="manual-remove-top-padding">
 
-        <div ng-repeat="e in p.events">
+    <ion-list>
+      <div ng-repeat="d in desc">
+        <ion-item class="item item-body bgList agendaMain" ng-click="toggleGroup(d)" ng-class="{menuactive: isGroupShown(d)}" ng-if="d.events.length">
+            <i class="icon agendaMain" ng-class="isGroupShown(d) ? 'ion-chevron-down' : 'ion-chevron-right'" style="float:right"></i>
+          &nbsp;
+          {{d.mTitle}}
+        </ion-item>
+        <ion-item class="item-accordion" ng-repeat="e in d.events" ng-show="isGroupShown(d)" style="white-space:normal">
           <a ng-click="gotoLink(e.file)">
             <div class="pIcon"></div>
             <div class="pTitle">
@@ -20,8 +16,9 @@
             </div>
           </a>
           <br clear="all">
-        </div>
+        </ion-item>
       </div>
-    </ion-scroll>
+    </ion-list>
+
   </ion-content>
 </ion-view>

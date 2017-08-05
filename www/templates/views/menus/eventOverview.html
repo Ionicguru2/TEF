@@ -1,15 +1,7 @@
 <ion-view title="EVENT OVERVIEW" class="eventPage">
-  <!--<ion-scroll>-->
-  <ion-content padding="false" class="manual-remove-top-padding has-header" scroll="false" overflow-scroll="true">
-
-    <div id="cover" ng-show="loading">
-      <div style="color:#fff;text-align:center;">LOADING</div>
-      <div style="margin:100px auto;width:10px;height:100%;">
-        <ion-spinner></ion-spinner>
-      </div>
-    </div>
-    <ion-scroll class="top-container">
+  <ion-content padding="false" class="manual-remove-top-padding">
+    
       <div ng-bind-html="overview.content" style="padding:10px;"></div>
-    </ion-scroll>
+
   </ion-content>
 </ion-view>
