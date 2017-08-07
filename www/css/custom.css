@@ -52,6 +52,13 @@ ion-list.manual-list-fullwidth div.list > .item, .list.card.manual-card-fullwidt
   background-color: white; }
 
 .has-bottom-selector {
-  bottom: 120px;
+  bottom: 120px !important;
 }
 
+.platform-android .home_page .scroll-content{
+  top: 0px;
+}
+
+ .tab-content .has-tabs-top{
+  bottom: 60px;
+} 

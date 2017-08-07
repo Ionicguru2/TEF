@@ -3513,7 +3513,7 @@ ion-infinite-scroll {
 
 .has-tabs,
 .bar-footer.has-tabs {
-  bottom: 49px; }
+  bottom: 60px; }
   .has-tabs.pane,
   .bar-footer.has-tabs.pane {
     bottom: 49px;
@@ -4077,6 +4077,8 @@ a.subdued {
   font-size: 24px; }
 
 .platform-android .bar .title {
+  text-align: center;
+  left: 0 !important;
   font-size: 19px;
   line-height: 44px; }
 
@@ -9809,10 +9811,12 @@ a.button {
   height: 84px !important; }
 
 .has-header {
-  top: 84px; }
+  top: 84px !important; }
 
-.platform-ios .has-header {
+/* .platform-ios .has-header {
   margin-top: 20px; }
+.platform-android .has-header {
+  margin-top: 0px; } */
 
 .ispan {
   float: right; }
@@ -9841,64 +9845,65 @@ a.button {
   background-color: white; }
 
 .tab-container > .tabs {
-  background: #003B4A;
+  background: #003B4A !important;
   border-top: 1px solid #fff !important;
   height: 62px;
+  top: auto !important;
 }
 
 .btnb1 {
-  background: url("https://www.trusteducationfoundation.com/mobile/icon1.png") no-repeat center 10px;
-  background-size: 41px 40px;
+  background: url("https://www.trusteducationfoundation.com/mobile/icon1.png") no-repeat center 10px !important;
+  background-size: 41px 40px !important;
   background-color: #000;
   padding-top: 20px !important;
   height: 60px;
   outline: 0; }
 
 .btn-tab-networking-events{
-  background: url("https://www.trusteducationfoundation.com/mobile/icon1.png") no-repeat center 10px;
-  background-size: 41px 40px;
+  background: url("https://www.trusteducationfoundation.com/mobile/icon1.png") no-repeat center 10px !important;
+  background-size: 41px 40px !important;
   padding-top: 20px !important;
   height: 60px;
   outline: 0;
 }
 
 .btnb2 {
-  background: url("https://www.trusteducationfoundation.com/mobile/icon2.png") no-repeat center 10px;
-  background-size: 40px 35px;
+  background: url("https://www.trusteducationfoundation.com/mobile/icon2.png") no-repeat center 10px !important;
+  background-size: 40px 35px !important;
   background-color: #000;
   padding-top: 20px !important;
   height: 60px; }
 
 .btn-tab-conference-feed {
-  background: url("https://www.trusteducationfoundation.com/mobile/icon2.png") no-repeat center 10px;
-  background-size: 40px 35px;
+  background: url("https://www.trusteducationfoundation.com/mobile/icon2.png") no-repeat center 10px !important;
+  background-size: 40px 35px !important;
   padding-top: 20px !important;
   height: 60px;
 }
 
 .btnb3 {
-  background: url("https://www.trusteducationfoundation.com/mobile/icon3.png") no-repeat center 10px;
-  background-size: 41px 40px;
+  background: url("https://www.trusteducationfoundation.com/mobile/icon3.png") no-repeat center 10px !important;
+  background-size: 41px 40px !important;
   padding-top: 20px !important;
   height: 60px; }
 
 .btn-tab-presentations {
-  background: url("https://www.trusteducationfoundation.com/mobile/icon3.png") no-repeat center 10px;
-  background-size: 41px 40px;
+  background: url("https://www.trusteducationfoundation.com/mobile/icon3.png") no-repeat center 10px !important;
+  background-size: 41px 40px !important;
   padding-top: 20px !important;
   height: 60px;
 }
 
 .btnb4 {
-  background: url("https://www.trusteducationfoundation.com/mobile/icon4.png") no-repeat center 10px;
-  background-size: 28px 41px;
+  background: url("https://www.trusteducationfoundation.com/mobile/icon4.png") no-repeat center 10px !important;
+  background-size: 28px 41px !important;
   background-color: #000;
   padding-top: 20px !important;
   height: 60px; }
 
 .btn-tab-evaluations {
-  background: url("https://www.trusteducationfoundation.com/mobile/icon4.png") no-repeat center 6px;
-  background-size: 30px 41px;
+  background: url("https://www.trusteducationfoundation.com/mobile/icon4.png") no-repeat center 6px !important;
+  background-size: 30px 41px !important;
   padding-top: 20px !important;
   height: 60px;
 }
@@ -9911,8 +9916,8 @@ a.button {
   background-color: black;
   z-index: 000;
   margin-top: 20px;
-  background: url("https://www.trusteducationfoundation.com/mobile/menubottom.png") no-repeat center 10px;
-  background-size: 238px 30px; }
+  background: url("https://www.trusteducationfoundation.com/mobile/menubottom.png") no-repeat center 10px !important;
+  background-size: 238px 30px !important; }
 
 .menuwide {
   width: 100%; }
