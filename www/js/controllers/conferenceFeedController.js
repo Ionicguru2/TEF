@@ -5,6 +5,8 @@ angular.module('app')
     $scope.confDays = [];
     $scope.isFirstTime = true;
 
+    $scope.numBadge = 0;
+
     $scope.isToday = function(date) {
         date = new Date(date).setHours(0, 0, 0, 0);
         var today = new Date().setHours(0, 0, 0, 0);
@@ -17,6 +19,27 @@ angular.module('app')
             $scope.shownGroup = null;
         } else {
             $scope.shownGroup = group;
+
+            var nodeNames = [];
+            var numBadge = 0;
+            for (var i = 0; i < group.messages.length; i ++)
+            {
+                if (group.messages[i].$id != 'day' && group.messages[i].isSeen == false)
+                {
+                    nodeNames.push('/' + group.dayObj.$id + '/' + group.messages[i].$id);
+                    numBadge ++;
+                }
+                // tmpGroup[group.messages[i].$id]['isSeen'] = true;
+            }
+
+            $timeout(function() {
+                for (var i = 0; i < nodeNames.length; i ++)
+                {
+                    firebase.database().ref(nodeNames[i]).child('isSeen').set(true);
+                }
+                $scope.$parent.setBadgeNum(numBadge);
+            }, 5000)
+            
         }
         $timeout(function() {
             $ionicScrollDelegate.scrollTop();
@@ -54,7 +77,15 @@ angular.module('app')
                 isToday: $scope.isToday(res[i].day)
             };
             $scope.confDays.push(confDay);
+
+            for (var j = 0; j < confDay.messages.length; j ++)
+            {
+                if (confDay.messages[j].isSeen == false)
+                    $scope.numBadge ++;
+            }
         }
+
+        // $scope.$parent.setBadgeNum($scope.numBadge);
         
         $ionicLoading.hide();
     });

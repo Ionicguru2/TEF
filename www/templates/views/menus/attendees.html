@@ -21,18 +21,22 @@
       </div>
 
       <div class="searchList">
-        <span class="sort">SORT BY</span>
-        <span class="searchFirst" ng-click="sortLast=false">FIRST NAME</span>
-        <span class="searchLast" ng-click="sortLast=true">LAST NAME</span>
+        <span class="sort">SORT BY:</span>
+        <span class="searchFirst" ng-click="sortLast=false" ng-class="{sortInactive: sortLast}">FIRST NAME</span>
+        <span class="searchLast" ng-click="sortLast=true" ng-class="{sortInactive: !sortLast}">LAST NAME</span>
         <ion-list>
           <div class="attendeeHeader">
             <i class="icon ion-heart attendeeIcon" style="color:red;"></i>
-            FAVORITES
+            FAVORITES 
+            <span style="font-size:10px">(swipe left</span>
+            <i class="fa fa-angle-double-left"></i>
+            <span style="font-size:10px">to add as favorite)</span>
           </div>
 
           <duv class="favorites" id="favorites">
             <ion-item ng-repeat="a in attendees | orderBy:'title_plain'| filter:filters.search" ng-show="storage[a.id]">
               <div class="attendeeWrapper">
+                <i class="fa fa-angle-double-left" style="float:right"></i>
                 <div class="attendeeName">{{a.title_plain}}</div>
                 <div class="attendeeTitle">{{a.custom_fields.title[0]}}</div>
                 <div class="attendeeTitle">{{a.custom_fields.company[0]}}</div>
@@ -47,6 +51,7 @@
           <div class="attendeeHeader" style="padding-left:47px;">ATTENDEES</div>
           <ion-item ng-repeat="a in attendees | orderBy:'sort_first' | filter:filters.search" ng-if="!sortLast">
             <div class="attendeeWrapper">
+              <i class="fa fa-angle-double-left" style="float:right"></i>
               <div class="attendeeName">{{a.title_plain}}</div>
               <div class="attendeeTitle">{{a.custom_fields.title[0]}}</div>
               <div class="attendeeTitle">{{a.custom_fields.company[0]}}</div>
@@ -58,6 +63,7 @@
           </ion-item>
           <ion-item ng-repeat="a in attendees | orderBy:'sort_last' | filter:filters.search" ng-if="sortLast">
             <div class="attendeeWrapper">
+              <i class="fa fa-angle-double-left" style="float:right"></i>
               <div class="attendeeName">{{a.title_plain}}</div>
               <div class="attendeeTitle">{{a.custom_fields.title[0]}}</div>
               <div class="attendeeTitle">{{a.custom_fields.company[0]}}</div>

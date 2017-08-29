@@ -59,6 +59,25 @@ ion-list.manual-list-fullwidth div.list > .item, .list.card.manual-card-fullwidt
   top: 0px;
 }
 
- .tab-content .has-tabs-top{
+.tab-content .has-tabs-top{
   bottom: 60px;
 } 
+
+.tab-item-active {
+  background-color: #ED7526 !important;
+}
+
+.unread{
+  left: 0px !important;
+  overflow: hidden;
+  font-size: 10px !important;
+  color: #721A1A;
+  top: -13px !important;
+}
+
+.badge {
+  color: white !important;
+  background: #7B2929 !important;
+  bottom: 5%;
+  top: auto !important;
+}

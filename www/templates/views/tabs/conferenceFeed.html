@@ -10,6 +10,7 @@
         </ion-item>
         <ion-item class="item-accordion item-nowrap-disable" ng-repeat="message in confDay.messages" ng-show="isGroupShown(confDay)" ng-if="message.message">
           <div class="item item-icon-left conferenceFeed item-text-wrap" ng-if="message.message">
+            <i class="icon unread ion-record" ng-if="message.isSeen == false"></i>
             <i class="icon ion-ios-contact"></i>
             <span class="confAuthor">{{message.author}}</span>
             <span class="confText"> {{message.time}}

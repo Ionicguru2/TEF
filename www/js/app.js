@@ -5,7 +5,7 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-angular.module('app', ['ionic', 'ionicUIRouter', 'app.routes', 'app.directives','app.services','app.config','firebase','firebaseConfig',])
+angular.module('app', ['ionic', 'ionicUIRouter', 'app.routes', 'app.directives', 'app.services','app.config','firebase','firebaseConfig',])
 
 .config(function($ionicConfigProvider, $sceDelegateProvider){
   
@@ -13,7 +13,7 @@ angular.module('app', ['ionic', 'ionicUIRouter', 'app.routes', 'app.directives',
     $sceDelegateProvider.resourceUrlWhitelist([ 'self','*://www.youtube.com/**', '*://player.vimeo.com/video/**']);
 })
 
-.run(function($ionicPlatform) {
+.run(function($ionicPlatform, $ionicPopup) {
     $ionicPlatform.ready(function() {
         // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
         // for form inputs)
@@ -31,32 +31,45 @@ angular.module('app', ['ionic', 'ionicUIRouter', 'app.routes', 'app.directives',
             //Keep in mind the function will return null if the token has not been established yet.
             FCMPlugin.getToken(
                 function (token) {
-                    alert('Token: ' + token);
-                    console.log('Token: ' + token);
+                    // alert('Token: ' + token);
+                    // console.log('Token: ' + token);
                 },
                 function (err) {
-                    alert('error retrieving token: ' + token);
-                    console.log('error retrieving token: ' + err);
+                    // alert('error retrieving token: ' + token);
+                    // console.log('error retrieving token: ' + err);
                 }
             );
 
             FCMPlugin.onNotification(
                 function(data){
+
+                    var elem = angular.element(document.querySelector('[ng-app]'));
+                    var rootScope = elem.injector().get('$rootScope');
+                    rootScope.$broadcast('pushNotificationReceived', data);
+
                     if(data.wasTapped){
-                        //Notification was received on device tray and tapped by the user.
-                        alert("Tapped: " +  JSON.stringify(data) );
+                        var alertPopup = $ionicPopup.alert({
+                            title: 'New conference feed added!',
+                            template: data['title'] + '\n' + data['body']
+                          });
+                          alertPopup.then(function(res) {
+                          });
                     }else{
-                        //Notification was received in foreground. Maybe the user needs to be notified.
-                        alert("Not tapped: " + JSON.stringify(data) );
+                        var alertPopup = $ionicPopup.alert({
+                            title: 'New conference feed added!',
+                            template: data['title'] + '\n' + data['body']
+                          });
+                          alertPopup.then(function(res) {
+                          });
                     }
                 },
                 function(msg){
-                    alert('onNotification callback successfully registered: ' + msg);
-                    console.log('onNotification callback successfully registered: ' + msg);
+                    // alert('onNotification callback successfully registered: ' + msg);
+                    // console.log('onNotification callback successfully registered: ' + msg);
                 },
                 function(err){
-                    alert('Error registering onNotification callback: ' + err);
-                    console.log('Error registering onNotification callback: ' + err);
+                    // alert('Error registering onNotification callback: ' + err);
+                    // console.log('Error registering onNotification callback: ' + err);
                 }
             );
         }

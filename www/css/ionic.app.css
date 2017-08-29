@@ -3991,13 +3991,13 @@ a.subdued {
     overflow: hidden;
     margin: 0 10px;
     min-width: 30px;
-    height: 43px;
+    height: 100%;
+    line-height: 90px;
     text-align: center;
     text-overflow: ellipsis;
     white-space: nowrap;
-    font-size: 17px;
-    font-weight: 500;
-    line-height: 44px; }
+    font-size: 20px;
+    font-weight: bold; }
     .bar .title.title-left {
       text-align: left; }
     .bar .title.title-right {
@@ -9851,6 +9851,14 @@ a.button {
   top: auto !important;
 }
 
+.btn-tab-home{
+  background: url("https://www.trusteducationfoundation.com/wp-content/uploads/2017/08/TAF_whitelogo.png") no-repeat center 10px !important;
+  background-size: 41px 40px !important;
+  padding-top: 20px !important;
+  height: 60px;
+  outline: 0;
+}
+
 .btnb1 {
   background: url("https://www.trusteducationfoundation.com/mobile/icon1.png") no-repeat center 10px !important;
   background-size: 41px 40px !important;
@@ -9933,6 +9941,10 @@ a.button {
 
 .agendaMain {
   color: #fff; }
+
+.swipLeft {
+  color: #000;
+}
 
 .platinum {
   background: #546C7A !important;
@@ -10044,6 +10056,7 @@ a.sTitle {
 
 .attendeeTitle {
   font-size: 12px;
+  overflow: hidden;
   color: #808285; }
 
 .attendeeCompany {
@@ -10063,7 +10076,7 @@ a.sTitle {
 .attendeeIcon {
   font-size: 18px;
   padding-left: 10px;
-  margin-right: 20px; }
+  margin-right: 10px; }
 
 .attendeeSearch {
   background: #003B4A; }
@@ -10104,8 +10117,13 @@ input:-ms-input-placeholder {
 
 .sort, .searchFirst, .searchLast {
   font-size: 12px;
+  font-weight: bold;
   padding-left: 20px;
-  color: #808285; }
+  color: #003b4a; }
+
+.sortInactive {
+  color: #808285;
+}
 
 #cover {
   width: 100%;

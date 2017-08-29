@@ -8,5 +8,8 @@
   ],
   "watchPatterns": [
     "scss/**/*"
-  ]
+  ],
+  "integrations": {
+    "cordova": {}
+  }
 }
