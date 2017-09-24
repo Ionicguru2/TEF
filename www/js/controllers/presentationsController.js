@@ -34,7 +34,7 @@ angular.module('app')
             for (var i = 0, len = $scope.presentations.length; i < len; i++) {
                 var events = [];            
                 var p =  $scope.presentations[i];
-                var mTitle = $scope.presentations[i].title;
+                var mTitle = "DAY " + (i+1) + " - " + $scope.presentations[i].title;
                 var count = p.custom_fields.presentation[0];
 
                 for (var j = 0, jlen = count; j<jlen; j++){

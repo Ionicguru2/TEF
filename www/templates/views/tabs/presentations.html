@@ -3,7 +3,7 @@
 
     <ion-list>
       <div ng-repeat="d in desc">
-        <ion-item class="item item-body bgList agendaMain" ng-click="toggleGroup(d)" ng-class="{menuactive: isGroupShown(d)}" ng-if="d.events.length">
+        <ion-item class="item item-body bgList agendaMain" ng-click="toggleGroup(d)" ng-class="{menuactive: isGroupShown(d)}" >
             <i class="icon agendaMain" ng-class="isGroupShown(d) ? 'ion-chevron-down' : 'ion-chevron-right'" style="float:right"></i>
           &nbsp;
           {{d.mTitle}}
