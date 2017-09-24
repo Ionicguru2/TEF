@@ -81,6 +81,9 @@ ion-list.manual-list-fullwidth div.list > .item, .list.card.manual-card-fullwidt
   bottom: 5%;
   top: auto !important;
 }
-.title .title-center .header-item{
-  margin-top: 0 !important;
+.menuLogoImg{
+  width: 95%;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
 }
