@@ -87,3 +87,7 @@ ion-list.manual-list-fullwidth div.list > .item, .list.card.manual-card-fullwidt
   top: 50%;
   transform: translateY(-50%);
 }
+.filter-text{
+  position: relative;
+  top: 10px;
+}

@@ -21,9 +21,17 @@
       </div>
 
       <div class="searchList">
-        <span class="sort">SORT BY:</span>
-        <span class="searchFirst" ng-click="sortLast=false" ng-class="{sortInactive: sortLast}">FIRST NAME</span>
-        <span class="searchLast" ng-click="sortLast=true" ng-class="{sortInactive: !sortLast}">LAST NAME</span>
+        <div style="height:40px">
+          <div class="sort">
+            <span class="filter-text">SORT BY:</span>
+          </div>
+          <div class="searchFirst" ng-click="sortLast=false" ng-class="{sortInactive: sortLast}">
+            <span class="filter-text">FIRST NAME</span>
+          </div>
+          <div class="searchLast" ng-click="sortLast=true" ng-class="{sortInactive: !sortLast}">
+            <span class="filter-text">LAST NAME</span>
+          </div>
+        </div>
         <ion-list>
           <div class="attendeeHeader">
             <i class="icon ion-heart attendeeIcon" style="color:red;"></i>

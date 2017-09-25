@@ -9964,7 +9964,7 @@ a.button {
 
 .home_sponsor {
   position: absolute;
-  bottom: 80px;
+  bottom: 20px;
   display: block;
   width: 100%;
   height: 20%;
@@ -10119,6 +10119,9 @@ input:-ms-input-placeholder {
   font-size: 12px;
   font-weight: bold;
   padding-left: 20px;
+  float: left;
+  height: 100%;
+  top: 10px;
   color: #003b4a; }
 
 .sortInactive {
