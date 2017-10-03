@@ -21,6 +21,15 @@ angular.module('app.routes', [])
       }
     })
     //tabs
+    .state('app.tab.empty', {
+      url: '/empty',
+      views: {
+        'tab-empty': {
+          templateUrl: null,
+          controller: null
+        }
+      }
+    })
     .state('app.tab.home', {
       url: '/home',
       views: {
@@ -70,7 +79,7 @@ angular.module('app.routes', [])
     .state('app.tab.eventOverview', {
       url: '/eventOverview',
       views: {
-        'tab-home': {
+        'tab-empty': {
           templateUrl: 'templates/views/menus/eventOverview.html',
           controller: 'eventOverviewController'
         }
@@ -79,7 +88,7 @@ angular.module('app.routes', [])
     .state('app.tab.agenda', {
       url: '/agenda',
       views: {
-        'tab-home': {
+        'tab-empty': {
           templateUrl: 'templates/views/menus/agenda.html',
           controller: 'agendaController'
         }
@@ -88,7 +97,7 @@ angular.module('app.routes', [])
     .state('app.tab.speakers', {
       url: '/speakers',
       views: {
-        'tab-home': {
+        'tab-empty': {
           templateUrl: 'templates/views/menus/speakers.html',
           controller: 'speakersController'
         }
@@ -97,7 +106,7 @@ angular.module('app.routes', [])
     .state('app.tab.speakerDetail', {
       url: '/speakerDetail/:id',
       views: {
-        'tab-home': {
+        'tab-empty': {
           templateUrl: 'templates/views/menus/speakerDetail.html',
           controller: 'speakerDetailController'
         }
@@ -106,7 +115,7 @@ angular.module('app.routes', [])
     .state('app.tab.attendees', {
       url: '/attendees',
       views: {
-        'tab-home': {
+        'tab-empty': {
           templateUrl: 'templates/views/menus/attendees.html',
           controller: 'attendeesController'
         }
@@ -115,7 +124,7 @@ angular.module('app.routes', [])
     .state('app.tab.sponsors', {
       url: '/sponsors',
       views: {
-        'tab-home': {
+        'tab-empty': {
           templateUrl: 'templates/views/menus/sponsors.html',
           controller: 'sponsorsController'
         }
@@ -124,102 +133,12 @@ angular.module('app.routes', [])
     .state('app.tab.faqs', {
       url: '/faqs',
       views: {
-        'tab-home': {
+        'tab-empty': {
           templateUrl: 'templates/views/menus/faqs.html',
           controller: 'faqsController'
         }
       }
     })
-
-//       .state('eVENTOVERVIEW', {
-//     url: '/page3',
-//     templateUrl: 'templates/eVENTOVERVIEW.html',
-//     controller: 'eVENTOVERVIEWCtrl'
-//   })
-
-//   .state('eVALUATIONS', {
-//     url: '/page14',
-//     templateUrl: 'templates/eVALUATIONS.html',
-//     controller: 'eVALUATIONSCtrl'
-//   })
-
-//   .state('cONFERENCEFEED', {
-//     url: '/page13',
-//     templateUrl: 'templates/cONFERENCEFEED.html',
-//     controller: 'cONFERENCEFEEDCtrl'
-//   })
-
-//   .state('aTTENDEES', {
-//     url: '/page16',
-//     templateUrl: 'templates/aTTENDEES.html',
-//     controller: 'aTTENDEESCtrl'
-//   })
-
-//   .state('aTTENDEES2', {
-//     url: '/page10',
-//     templateUrl: 'templates/aTTENDEES2.html',
-//     controller: 'aTTENDEES2Ctrl'
-//   })
-
-//   .state('pRESENTATIONS', {
-//     url: '/page11',
-//     templateUrl: 'templates/pRESENTATIONS.html',
-//     controller: 'pRESENTATIONSCtrl'
-//   })
-
-//   .state('sPEAKERS', {
-//     url: '/page18',
-// 	params: {
-// 		id: ""		
-// },
-//     templateUrl: 'templates/sPEAKERS.html',
-//     controller: 'sPEAKERSCtrl'
-//   })
-
-//   .state('sPEAKERS2', {
-//     url: '/page15',
-// 	params: {
-// 		id: ""		
-// },
-//     templateUrl: 'templates/sPEAKERS2.html',
-//     controller: 'sPEAKERS2Ctrl'
-//   })
-
-//   .state('tabsController', {
-//     url: '/page1',
-//     templateUrl: 'templates/tabsController.html',
-//     abstract:true
-//   })
-
-//   .state('aGENDA', {
-//     url: '/page19',
-//     templateUrl: 'templates/aGENDA.html',
-//     controller: 'aGENDACtrl'
-//   })
-
-//   .state('nETWORKINGEVENTS', {
-//     url: '/page17',
-//     templateUrl: 'templates/nETWORKINGEVENTS.html',
-//     controller: 'nETWORKINGEVENTSCtrl'
-//   })
-
-//   .state('sPONSORS', {
-//     url: '/page7',
-//     templateUrl: 'templates/sPONSORS.html',
-//     controller: 'sPONSORSCtrl'
-//   })
-
-//   .state('home', {
-//     url: '/page9',
-//     templateUrl: 'templates/home.html',
-//     controller: 'homeCtrl'
-//   })
-
-//   .state('fAQ', {
-//     url: '/page12',
-//     templateUrl: 'templates/fAQ.html',
-//     controller: 'fAQCtrl'
-//   })
 
   $urlRouterProvider.otherwise('/app/tab/home')
 

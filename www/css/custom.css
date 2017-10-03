@@ -91,7 +91,6 @@ ion-list.manual-list-fullwidth div.list > .item, .list.card.manual-card-fullwidt
   position: relative;
   top: 10px;
 }
-
 .tab-item-active.btn-tab-home{
   background: url(https://www.trusteducationfoundation.com/wp-content/uploads/2017/09/TAFhome.png)  no-repeat center !important;
   background-size: 60px 60px !important;
@@ -99,6 +98,10 @@ ion-list.manual-list-fullwidth div.list > .item, .list.card.manual-card-fullwidt
   height: 60px !important;
   outline: 0 !important;
   background-color: #7597A0 !important;
+}
+
+.btn-tab-empty{
+  display: none;
 }
 
 .tab-item-active.btn-tab-networking-events{
