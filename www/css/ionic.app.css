@@ -9824,7 +9824,7 @@ a.button {
 
 .menuList {
   background: #86888B;
-  height: 80px;
+  height: 11vh;
   padding-top: 10px;
   font-size: 14px;
   color: #fff;
@@ -9924,7 +9924,6 @@ a.button {
   width: 100%;
   height: 23vh;
   z-index: 000;
-  margin-top: 20px;
   background-size: 238px 30px !important; }
 
 .menuwide {

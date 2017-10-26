@@ -43,6 +43,7 @@ angular.module('app')
 
     $scope.setBadgeNum = function(number)
     {
+        // $scope.numBadge -= number;
         refreshBadge();
     }
 

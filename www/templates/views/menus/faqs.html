@@ -1,11 +1,10 @@
-<ion-view title="FAQ">
+<ion-view title="FAQs">
   <ion-content padding="false" class="manual-remove-top-padding">
 
     <ion-list>
       <div ng-repeat="d in faqs">
         <ion-item class="item item-body agendaMain" ng-click="toggleGroup(d)" ng-class="{menuactive: isGroupShown(d)}" style="background: #003B4A; font-size:15px;" dynamic="f.answer[0]">
             <i class="icon agendaMain" ng-class="isGroupShown(d) ? 'ion-chevron-down' : 'ion-chevron-right'" style="float:right"></i>
-          &nbsp;
           {{d.question[0]}}
         </ion-item>
         <ion-item class="item-accordion item-text-wrap" ng-show="isGroupShown(d)" style="font-size:12px;" dynamic="d.answer[0]">
