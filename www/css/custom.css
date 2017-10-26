@@ -139,3 +139,7 @@ ion-list.manual-list-fullwidth div.list > .item, .list.card.manual-card-fullwidt
   outline: 0 !important;
   background-color: #7597A0 !important;
 }
+
+.center-placeholder[placeholder]{
+  text-align:center;
+}

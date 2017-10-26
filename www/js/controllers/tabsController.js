@@ -43,7 +43,8 @@ angular.module('app')
 
     $scope.setBadgeNum = function(number)
     {
-        $scope.numBadge -= number;
+        // $scope.numBadge -= number;
+        refreshBadge();
     }
 
     $scope.$on('pushNotificationReceived', function(event, notification) {
