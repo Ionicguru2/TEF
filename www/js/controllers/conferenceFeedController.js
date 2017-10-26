@@ -74,7 +74,7 @@ angular.module('app')
                 messages: res[i + res.length/2],
                 isToday: $scope.isToday(res[i].day)
             };
-            confDay.dayObj.day = "DAY " + (i+1) + " - " + confDay.dayObj.day;
+            confDay.dayObj.day = confDay.dayObj.day;
             $scope.confDays.push(confDay);
 
             for (var j = 0; j < confDay.messages.length; j ++)
