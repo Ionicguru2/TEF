@@ -77,9 +77,10 @@ ion-list.manual-list-fullwidth div.list > .item, .list.card.manual-card-fullwidt
 
 .badge {
   color: white !important;
-  background: #7B2929 !important;
+  background: red !important;
   bottom: 5%;
   top: auto !important;
+  opacity: 1 !important;
 }
 .menuLogoImg{
   width: 95%;
