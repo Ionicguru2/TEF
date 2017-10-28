@@ -71,7 +71,7 @@ ion-list.manual-list-fullwidth div.list > .item, .list.card.manual-card-fullwidt
   left: 0px !important;
   overflow: hidden;
   font-size: 10px !important;
-  color: #721A1A;
+  color: red;
   top: -13px !important;
 }
 
