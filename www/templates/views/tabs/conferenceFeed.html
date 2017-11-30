@@ -3,12 +3,10 @@
 
     <ion-list>
       <div ng-repeat="confDay in confDays">
-        <ion-item class="item item-body bgList agendaMain" ng-click="toggleGroup(confDay)" ng-class="{menuactive: isGroupShown(confDay)}"  ng-if="confDay.dayObj.day">
-          <i class="icon agendaMain" ng-class="isGroupShown(confDay) ? 'ion-chevron-down' : 'ion-chevron-right'" style="float:right"></i>
-          &nbsp;
+        <ion-item class="item item-body bgList agendaMain" ng-class="{menuactive: confDay.isToday}"  ng-if="confDay.dayObj.day">
           {{confDay.dayObj.day}}
         </ion-item>
-        <ion-item class="item-accordion item-nowrap-disable" ng-repeat="message in confDay.messages" ng-show="isGroupShown(confDay)" ng-if="message.message">
+        <ion-item class="item-accordion item-nowrap-disable" ng-repeat="message in confDay.messages" ng-if="message.message">
           <div class="item item-icon-left conferenceFeed item-text-wrap" ng-if="message.message">
             <i class="icon unread ion-record" ng-if="message.isSeen == false"></i>
             <i class="icon ion-ios-contact"></i>

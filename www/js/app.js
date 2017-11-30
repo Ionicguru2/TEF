@@ -50,17 +50,19 @@ angular.module('app', ['ionic', 'ionicUIRouter', 'app.routes', 'app.directives',
                     if(data.wasTapped){
                         var alertPopup = $ionicPopup.alert({
                             title: 'New conference feed added!',
-                            template: data['title'] + '\n' + data['body']
-                          });
-                          alertPopup.then(function(res) {
-                          });
+                            template: '<b>' + data['title'] + '</b><br/>' + data['body']
+                        });
+                        alertPopup.then(function(res) {
+                            rootScope.$broadcast('refreshNotification', data);
+                        });
                     }else{
                         var alertPopup = $ionicPopup.alert({
                             title: 'New conference feed added!',
-                            template: data['title'] + '\n' + data['body']
-                          });
-                          alertPopup.then(function(res) {
-                          });
+                            template: '<b>' + data['title'] + '</b><br/>' + data['body']
+                        });
+                        alertPopup.then(function(res) {
+                            rootScope.$broadcast('refreshNotification', data);
+                        });
                     }
                 },
                 function(msg){
