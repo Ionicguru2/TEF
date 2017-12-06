@@ -10,7 +10,7 @@ angular.module('app')
     function getFormatedDate(session)
     {
         var strFBEventDateTime = session.date + ' ' + session.startTime;
-        var fbEventTime = new Date(strFBEventDateTime).getTime();;
+        var fbEventTime = new Date(strFBEventDateTime.replace(/-/g,"/")).getTime();
 
         var today = new Date().getTime();;
         var hourDiff = fbEventTime - today;
@@ -18,7 +18,7 @@ angular.module('app')
 
         // $scope.current = session;
 
-        var d = new Date(strFBEventDateTime);
+        var d = new Date(strFBEventDateTime.replace(/-/g,"/"));
         var weekdays = new Array(7);
         weekdays[0] =  "SUNDAY";
         weekdays[1] = "MONDAY";
@@ -110,7 +110,7 @@ angular.module('app')
                 else
                 {
                     var strFBEventDateTime = session.date + ' ' + session.startTime;
-                    var fbEventTime = new Date(strFBEventDateTime).getTime();
+                    var fbEventTime = new Date(strFBEventDateTime.replace(/-/g,"/")).getTime();
     
                     var today = new Date().getTime();;
                     var hourDiff = fbEventTime - today;
@@ -149,7 +149,9 @@ angular.module('app')
             else
             {
                 var strFBEventDateTime = session.date + ' ' + session.startTime;
-                var fbEventTime = new Date(strFBEventDateTime).getTime();
+                var fbEventTime = new Date(strFBEventDateTime.replace(/-/g,"/")).getTime();
+
+                var thedate = new Date(Date.parse(strFBEventDateTime));
 
                 var today = new Date().getTime();;
                 var hourDiff = fbEventTime - today;
