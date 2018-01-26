@@ -3,7 +3,7 @@ angular.module('app')
   
 .controller('homeController', function ($scope, $stateParams, $state, $firebaseObject, $timeout) {
 
-    var keyOfSession = 'currentSession13';
+    var keyOfSession = 'currentSession5';
     var ref = firebase.database().ref();
 
     function getFormatedDate(session)
@@ -94,10 +94,10 @@ angular.module('app')
                     
                     var date = getFormatedDate(daySessions.date);
     
-                    if (typeof currentSession == 'undefined') {
+                    if (typeof currentSession === 'undefined') {
                         daySessionsSnapshot.forEach(function(daySesisonSnapshot) {
                             var daySession = daySesisonSnapshot.val();
-                            if (daySession.startTime != 'undefined') {
+                            if (typeof daySession.startTime !== 'undefined') {
                                 $scope.current = {
                                     date: getFormatedDate(daySessions.date),
                                     time: getFormatedTime(daySession),
@@ -116,7 +116,7 @@ angular.module('app')
                         $scope.current = JSON.parse(currentSession);
                         daySessionsSnapshot.forEach(function(daySesisonSnapshot) {
                             var daySession = daySesisonSnapshot.val();
-                            if (daySession.startTime != 'undefined') {
+                            if (typeof daySession.startTime !== 'undefined') {
     
                                 var strFBEventDateTime = daySessions.date + ' ' + daySession.startTime;
                                 var fbEventTime = new Date(strFBEventDateTime.replace(/-/g,"/")).getTime();
