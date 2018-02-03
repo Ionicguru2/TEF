@@ -3,7 +3,7 @@ angular.module('app')
   
 .controller('homeController', function ($scope, $stateParams, $state, $firebaseObject, $timeout) {
 
-    var keyOfSession = 'currentSession5';
+    var keyOfSession = 'currentSession111';
     var ref = firebase.database().ref();
 
     function getFormatedDate(session)
@@ -148,7 +148,7 @@ angular.module('app')
 
     refreshSessionData();
 
-    setInterval(()=>{
+    setInterval(function() {
         refreshSessionData();
     }, 5000);
 });

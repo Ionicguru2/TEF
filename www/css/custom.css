@@ -144,3 +144,7 @@ ion-list.manual-list-fullwidth div.list > .item, .list.card.manual-card-fullwidt
 .center-placeholder[placeholder]{
   text-align:center;
 }
+
+.platform-android .bar .title {
+  line-height: 5 !important;
+}

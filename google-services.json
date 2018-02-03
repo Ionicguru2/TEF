@@ -8,12 +8,16 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:167246138344:android:8c9b49a16a0964fe",
+        "mobilesdk_app_id": "1:167246138344:android:297b367a99874167",
         "android_client_info": {
-          "package_name": "com.trusteducationfoundation.taf"
+          "package_name": "com.tef.taf"
         }
       },
       "oauth_client": [
+        {
+          "client_id": "167246138344-hfnbghvekin1klfri0olom8qg8iepbih.apps.googleusercontent.com",
+          "client_type": 3
+        },
         {
           "client_id": "167246138344-duodv7uara9csgj45ogv29f0lkq2qif6.apps.googleusercontent.com",
           "client_type": 3

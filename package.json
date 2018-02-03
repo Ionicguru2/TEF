@@ -3,6 +3,7 @@
     "version": "0.0.1",
     "description": "An Ionic project",
     "dependencies": {
+        "build": "^0.1.4",
         "cordova-android": "^6.2.3",
         "cordova-ios": "^4.4.0",
         "cordova-plugin-console": "^1.0.5",
