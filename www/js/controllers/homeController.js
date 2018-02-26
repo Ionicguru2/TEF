@@ -3,22 +3,14 @@ angular.module('app')
   
 .controller('homeController', function ($scope, $stateParams, $state, $firebaseObject, $timeout) {
 
-    var keyOfSession = 'currentSession10';
+    var keyOfSession = 'currentSession13';
     var ref = firebase.database().ref();
-    // $scope.current =$firebaseObject(ref.child("current"));
 
     function getFormatedDate(session)
     {
         var strFBEventDateTime = session.date + ' ' + session.startTime;
-        var fbEventTime = new Date(strFBEventDateTime.replace(/-/g,"/")).getTime();
 
-        var today = new Date().getTime();;
-        var hourDiff = fbEventTime - today;
-        var minDiff = hourDiff / 60 / 1000;
-
-        // $scope.current = session;
-
-        var d = new Date(strFBEventDateTime.replace(/-/g,"/"));
+        var d = new Date(session.replace(/-/g,"/"));
         var weekdays = new Array(7);
         weekdays[0] =  "SUNDAY";
         weekdays[1] = "MONDAY";
@@ -30,7 +22,7 @@ angular.module('app')
         
         var n = weekdays[d.getDay()];
 
-        var months = new Array();
+        var months = [];
         months[0] = "JANUARY";
         months[1] = "FEBRARY";
         months[2] = "MARCH";
@@ -65,9 +57,6 @@ angular.module('app')
         endTime.setMinutes(session.endTime.substr(session.endTime.indexOf(":") + 1));
         endTime.setSeconds(0);
 
-        // var startTime = new Date(session.startTime);
-        // var endTime = new Date(session.endTime);
-
         var sHours = startTime.getHours();
         var sAMPM = sHours >= 12 ? ' PM' : ' AM';
         sHours = sHours % 12;
@@ -91,83 +80,75 @@ angular.module('app')
         return strStart + ' - ' + strEnd;
     }
 
-    setInterval(()=>{
+    
 
-        ref.child("current").on('value', function(snapshot) {
+    function refreshSessionData() {
+        ref.child("sessions").on('value', function(snapshot) {
+
             $timeout(function() {
                 
-                $scope.current = snapshot.val();
-                var session = snapshot.val();
+                snapshot.forEach(function(daySessionsSnapshot) {
+                    var daySessions = daySessionsSnapshot.val();
+                    var current = daySessionsSnapshot.val();
+                    var currentSession = window.localStorage[keyOfSession];
+                    
+                    var date = getFormatedDate(daySessions.date);
     
-                var currentSession = window.localStorage[keyOfSession];
-                if (typeof currentSession == 'undefined')
-                {
-                    $scope.current['date'] = getFormatedDate(session);
-                    $scope.current['time'] = getFormatedTime(session);
-    
-                    window.localStorage[keyOfSession]=JSON.stringify($scope.current);
-                }
-                else
-                {
-                    var strFBEventDateTime = session.date + ' ' + session.startTime;
-                    var fbEventTime = new Date(strFBEventDateTime.replace(/-/g,"/")).getTime();
-    
-                    var today = new Date().getTime();;
-                    var hourDiff = fbEventTime - today;
-                    var minDiff = hourDiff / 60 / 1000;
-    
-                    if (minDiff < 10)
-                    {
-                        $scope.current['date'] = getFormatedDate(session);
-                        $scope.current['time'] = getFormatedTime(session);
-                        window.localStorage[keyOfSession]=JSON.stringify($scope.current);
+                    if (typeof currentSession == 'undefined') {
+                        daySessionsSnapshot.forEach(function(daySesisonSnapshot) {
+                            var daySession = daySesisonSnapshot.val();
+                            if (daySession.startTime != 'undefined') {
+                                $scope.current = {
+                                    date: getFormatedDate(daySessions.date),
+                                    time: getFormatedTime(daySession),
+                                    sessionTitle: daySession.sessionTitle,
+                                    roomLocation: daySession.roomLocation,
+                                    speakerNameAndTitle: daySession.speakerNameAndTitle
+                                };
+                                window.localStorage[keyOfSession]=JSON.stringify($scope.current);
+
+                                return;
+                            }
+                        });
                     }
                     else
                     {
                         $scope.current = JSON.parse(currentSession);
+                        daySessionsSnapshot.forEach(function(daySesisonSnapshot) {
+                            var daySession = daySesisonSnapshot.val();
+                            if (daySession.startTime != 'undefined') {
+    
+                                var strFBEventDateTime = daySessions.date + ' ' + daySession.startTime;
+                                var fbEventTime = new Date(strFBEventDateTime.replace(/-/g,"/")).getTime();
+    
+                                var thedate = new Date(Date.parse(strFBEventDateTime));
+                                
+                                var todayDate = new Date();
+                                var today = new Date().getTime();
+                                var hourDiff = fbEventTime - today;
+                                var minDiff = hourDiff / 60 / 1000;
+    
+                                if (0 < minDiff && minDiff < 10) {
+                                    $scope.current = {
+                                        date: getFormatedDate(daySessions.date),
+                                        time: getFormatedTime(daySession),
+                                        sessionTitle: daySession.sessionTitle,
+                                        roomLocation: daySession.roomLocation,
+                                        speakerNameAndTitle: daySession.speakerNameAndTitle
+                                    };
+                                    window.localStorage[keyOfSession]=JSON.stringify($scope.current);
+                                }
+                            }
+                        });
                     }
-                }
-            })
+                });
+            });
         });
+    }
 
+    refreshSessionData();
+
+    setInterval(()=>{
+        refreshSessionData();
     }, 5000);
-
-    ref.child("current").on('value', function(snapshot) {
-        $timeout(function() {
-            
-            $scope.current = snapshot.val();
-            var session = snapshot.val();
-
-            var currentSession = window.localStorage[keyOfSession];
-            if (typeof currentSession == 'undefined')
-            {
-                $scope.current['date'] = getFormatedDate(session);
-                $scope.current['time'] = getFormatedTime(session);
-
-                window.localStorage[keyOfSession]=JSON.stringify($scope.current);
-            }
-            else
-            {
-                var strFBEventDateTime = session.date + ' ' + session.startTime;
-                var fbEventTime = new Date(strFBEventDateTime.replace(/-/g,"/")).getTime();
-
-                var thedate = new Date(Date.parse(strFBEventDateTime));
-
-                var today = new Date().getTime();;
-                var hourDiff = fbEventTime - today;
-                var minDiff = hourDiff / 60 / 1000;
-
-                if (minDiff < 10)
-                {
-                    $scope.current['date'] = getFormatedDate(session);
-                    $scope.current['time'] = getFormatedTime(session);
-                    window.localStorage[keyOfSession]=JSON.stringify($scope.current);
-                }
-                else
-                {
-                    $scope.current = JSON.parse(currentSession);
-                }
-            }
-        })
-    });
-})
+});
