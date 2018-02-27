@@ -3,7 +3,7 @@ angular.module('app')
   
 .controller('homeController', function ($scope, $stateParams, $state, $firebaseObject, $timeout) {
 
-    var keyOfSession = 'currentSession111';
+    var keyOfSession = 'currentSessi';
     var ref = firebase.database().ref();
 
     function getFormatedDate(session)
@@ -12,7 +12,7 @@ angular.module('app')
 
         var d = new Date(session.replace(/-/g,"/"));
         var weekdays = new Array(7);
-        weekdays[0] =  "SUNDAY";
+        weekdays[0] = "SUNDAY";
         weekdays[1] = "MONDAY";
         weekdays[2] = "TUESDAY";
         weekdays[3] = "WEDNESDAY";
@@ -24,7 +24,7 @@ angular.module('app')
 
         var months = [];
         months[0] = "JANUARY";
-        months[1] = "FEBRARY";
+        months[1] = "FEBRUARY";
         months[2] = "MARCH";
         months[3] = "APRIL";
         months[4] = "MAY";
@@ -128,6 +128,21 @@ angular.module('app')
                                 var hourDiff = fbEventTime - today;
                                 var minDiff = hourDiff / 60 / 1000;
     
+                                if (typeof daySession.endTime !== 'undefined') {
+                                    var strFBEventEndDateTime = daySessions.date + ' ' + daySession.endTime;
+                                    var fbEventEndTime = new Date(strFBEventEndDateTime.replace(/-/g,"/")).getTime();
+                                    if (today > fbEventTime && today < fbEventEndTime) {
+                                        $scope.current = {
+                                            date: getFormatedDate(daySessions.date),
+                                            time: getFormatedTime(daySession),
+                                            sessionTitle: daySession.sessionTitle,
+                                            roomLocation: daySession.roomLocation,
+                                            speakerNameAndTitle: daySession.speakerNameAndTitle
+                                        };
+                                        window.localStorage[keyOfSession]=JSON.stringify($scope.current);
+                                    }
+                                }
+
                                 if (0 < minDiff && minDiff < 10) {
                                     $scope.current = {
                                         date: getFormatedDate(daySessions.date),
